@@ -1,36 +1,24 @@
-// let x = 10;
-// let y = x;
-
-// x = 20;
-
-// console.log(x);
-// console.log(y);
-
-
-// let x = { value: 10 };
-// let y = x;
-
-// x.value = 20;
-
-// console.log(x.value);
-// console.log(y.value);
-
-
-// let number = 10;
-
-// function increase(number){
-//     number++;
-// }
-// increase(number);
-
-// console.log(number);
-
-
-let obj = { value: 10 };
-
-function increase(obj){
-    obj.value++;
+function Circle(radius){
+    this.radius = radius;
+    this.draw = function(){
+        console.log('draw');
+    }
 }
-increase(obj);
 
-console.log(obj.value);
+const circle = new Circle(10);
+
+// circle.location = { x: 1 };
+// circle['location'] = { x: 1 };
+
+// const propertyName = 'location';
+// circle[propertyName] = { x: 1};
+
+const propertyName = 'center-location';
+// No:
+circle.center-location
+// But:
+circle[propertyName] = { x: 1};
+
+
+delete circle.location;
+delete circle['location'];
