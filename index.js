@@ -1,12 +1,12 @@
 function Circle(radius){
     this.radius = radius;
     this.draw = function(){
-        this.computeOptimumLocation();
+        computeOptimumLocation();
         console.log('draw');
     }
 
-    this.defaultLocation = {x: 0, y: 0};
-    this.computeOptimumLocation = function(){
+    let defaultLocation = {x: 0, y: 0};
+    let computeOptimumLocation = function(){
     }
 }
 
