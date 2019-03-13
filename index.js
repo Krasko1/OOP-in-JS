@@ -1,37 +1,17 @@
-const sw = new Stopwatch();
+let person = {name: 'Vlada'};
 
-function Stopwatch(){
-    let startTime, endTime, running, duration = 0;
-    
-    this.start = function(){
-        if(running){
-            throw new Error('Stopwatch has already been started.');
-        }
+// let objectBase = Object.getPrototypeOf(person);
+// let descriptor = Object.getOwnPropertyDescriptor(objectBase, 'toString');
+// console.log(descriptor);
 
-        running = true; 
-        startTime = new Date();
-    };
+Object.defineProperty(person, 'name', {
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
 
-    this.stop = function() {
-        if(!running){
-            throw new Error('Stopwatch is not started.');
-        }
-
-        running = false; 
-        endTime = new Date();
-
-        const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
-        duration += seconds;
-    };
-
-    this.reset = function() {
-        startTime = null;
-        endTime = null;
-        running = false;
-        duration = 0;
-    };
-
-    Object.defineProperty(this, 'duration',{
-        get: function(){ return duration; }
-    });
-}
+person.name = 'John';
+// console.log(person);
+// console.log(Object.keys(person));
+delete(person.name);
+console.log(person);
