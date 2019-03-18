@@ -1,17 +1,7 @@
-let person = {name: 'Vlada'};
+function Circle(radius){
+    this.radius = radius;
+}
 
-// let objectBase = Object.getPrototypeOf(person);
-// let descriptor = Object.getOwnPropertyDescriptor(objectBase, 'toString');
-// console.log(descriptor);
+Circle.prototype
 
-Object.defineProperty(person, 'name', {
-    writable: false,
-    enumerable: false,
-    configurable: false
-});
-
-person.name = 'John';
-// console.log(person);
-// console.log(Object.keys(person));
-delete(person.name);
-console.log(person);
+const circle = new Circle(1);
