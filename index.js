@@ -1,37 +1,42 @@
-function extend(Child, Parent){
-    Child.prototype = Object.create(Parent.prototype);
-    Child.prototype.constructor = Child;
+function mixin(target, ...sources){
+    Object.assign(target, ...sources);
 }
 
-function Shape(){
+const canEat = {
+    eat: function(){
+        this.hunger--;
+        console.log('eating');
+    }
+};
+
+const canWalk = {
+    walk: function(){
+        console.log('walking');
+    }
+};
+
+const canSwim = {
+    swim: function(){
+        console.log('swim');
+    }
+};
+
+function Person(){
 }
 
-Shape.prototype.duplicate = function(){
-    console.log('duplicate');
+// Object.assign(Person.prototype, canEat, canWalk);
+mixin(Person.prototype, canEat, canWalk);
+const person = new Person();
+
+// const person = Object.assign({}, canEat, canWalk);
+console.log(person);
+
+function Goldfish(){
 }
 
-function Circle(){
-}
+// Object.assign(Goldfish.prototype, canEat, canSwim);
+mixin(Goldfish.prototype, canEat, canSwim);
 
-extend(Circle, Shape);
+const goldfish = new Goldfish();
 
-Circle.prototype.duplicate = function(){
-    console.log('duplicate circle');
-}
-
-function Square(){
-}
-
-extend(Square, Shape);
-
-Square.prototype.duplicate = function(){
-    console.log('duplicate square');
-}
-
-const shapes = [
-    new Circle(),
-    new Square()
-];
-
-for(let shape of shapes)
-    shape.duplicate();
+console.log(goldfish);
