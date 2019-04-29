@@ -1,20 +1,18 @@
-// function Circle(radius){
-//     this.radius = radius;
+// OK:
+sayHello();
 
-//     this.draw = function(){
-//         console.log('draw');
-//     }
-// }
+// Not OK:
+sayGoodbye();
 
-class Circle{
-    constructor(radius){
-        this.radius = radius;
-        this.move = function(){}
-    }
+function sayHello(){}
 
-    draw(){
-        console.log('draw');
-    }
-}
+const sayGoodbye = function (){};
 
-const c = new Circle(1);
+
+
+// Not OK:
+const c = new Circle()
+
+class Circle{}
+
+const Square = class{}
