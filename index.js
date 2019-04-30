@@ -1,18 +1,20 @@
-// OK:
-sayHello();
+class Circle{
+    constructor(radius){
+        this.radius = radius;
+    }
 
-// Not OK:
-sayGoodbye();
+    draw(){
+    }
 
-function sayHello(){}
+    static parse(str){
+        const radius = JSON.parse(str).radius;
+        return new Circle(radius);
+    }
+}
 
-const sayGoodbye = function (){};
+// const c = new Circle(1);
+// c.draw();
+// Circle.parse();
 
-
-
-// Not OK:
-const c = new Circle()
-
-class Circle{}
-
-const Square = class{}
+const c = Circle.parse('{ "radius": 1 }');
+console.log(c);
