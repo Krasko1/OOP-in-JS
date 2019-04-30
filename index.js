@@ -1,20 +1,24 @@
+// 'use strict';
+
+// const Circle = function(){
+//     this.draw = function(){
+//         console.log(this);
+//     }
+// };
+
+// const c = new Circle();
+// c.draw();
+
+// const draw = c.draw;
+// console.log(draw);
+// draw();
+
 class Circle{
-    constructor(radius){
-        this.radius = radius;
-    }
-
     draw(){
-    }
-
-    static parse(str){
-        const radius = JSON.parse(str).radius;
-        return new Circle(radius);
+        console.log(this);
     }
 }
 
-// const c = new Circle(1);
-// c.draw();
-// Circle.parse();
-
-const c = Circle.parse('{ "radius": 1 }');
-console.log(c);
+const c = new Circle();
+const draw = c.draw;
+draw();
